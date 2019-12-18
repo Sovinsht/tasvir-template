@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import PhotoModel
 
 # Create your views here.
 def index(request):
-    #return HttpResponse('<h1> Hello World</h1>')
-    return render(request, 'photo_app/index.html')
+    
+    upload = PhotoModel.objects.all()
+    return render(request, 'photo_app/index.html',{'upload': upload})
