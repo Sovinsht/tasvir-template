@@ -19,7 +19,7 @@
 
 
 <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="{% url 'photo_app:index' %}">
       <img src="http://pluspng.com/img-png/instagram-png-instagram-png-logo-1455.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Bootstrap
     </a>
@@ -32,10 +32,10 @@
 
       <ul class="nav justify-content-end">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+          <a class="nav-link active" href="{% url 'photo_app:add' %}">Add</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" href="{% url 'user:logout' %}">LogOut</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>

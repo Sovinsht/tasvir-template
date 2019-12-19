@@ -15,11 +15,15 @@
     <h8>{{up.timestamp}}</h8>
     <img src="{{up.photo.url}}" alt="pic">
     <h7>{{up.like}}</h7>
+    <a href="{% url 'photo_app:edit' up.id %}">Edit</a>
+
+    {% endfor %}
 
         {% for com in comments %}
         <h6>{{com.Comment}}</h6><br>
         <h8>{{com.comment_by}}</h8> at <h8>{{com.timestamp1}}</h8>
-        {% endfor %}
+
+        
     {% endfor %}
 
   {% endblock %}
