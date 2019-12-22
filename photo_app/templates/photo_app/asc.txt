@@ -1,0 +1,32 @@
+
+{%extends "photo_app\base.html"%}
+{% extends "user_app%}
+
+
+    {% block title %}
+    Tasbir
+    {% endblock %}
+
+
+ {% block content %}
+
+ {% for up in upload %}
+ <h5>{{up.caption}}</h5>
+ <h6>{{up.user}}</h6>
+ <h8>{{up.timestamp}}</h8>
+ <imp src="{{up.}}"
+ <img src="{{up.photo.url}}" alt="pic">
+ <h7>{{up.like}}</h7>
+ <a href="{% url 'photo_app:edit' up.id %}">Edit</a>
+
+ {% endfor %}
+
+     {% for com in comments %}
+     <h6>{{com.Comment}}</h6><br>
+     <h8>{{com.comment_by}}</h8> at <h8>{{com.timestamp1}}</h8>
+
+     {% endfor %}
+ {% endfor %}
+  {% endblock %}
+
+ 

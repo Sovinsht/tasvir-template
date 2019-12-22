@@ -1,66 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
+{% load static %}
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
-    <title>
-        {% block title %}
-        Tasbir
+    <head>
+        <meta charset="UTF-8">
+        <title>Feed | Instaclone</title>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}" type="image/x-icon">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    </head> 
+    <body>
+        <nav class="navigation">
+            <a href="feed.html">
+                <img 
+                    src="{% static 'images/navLogo.png' %}"
+                    alt="logo"
+                    title="logo"
+                    class="navigation__logo"
+                />
+            </a>
+            <div class="navigation__search-container">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="navigation__icons">
+                <a href="explore.html" class="navigation__link">
+                    <i class="fa fa-compass"></i>
+                </a>
+                <a href="#" class="navigation__link">
+                    <i class="fa fa-heart-o"></i>
+                </a>
+                <a href="{% url 'photo_app:profile' %}" class="navigation__link">
+                    <i class="fa fa-user-o"></i>
+                </a>
+            </div>
+        </nav>
+        {% block main_content %}
+          
         {% endblock %}
-    </title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
-    <!-- Image and text -->
-    <div class="container">
-
-
-<nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'photo_app:index' %}">
-      <img src="http://pluspng.com/img-png/instagram-png-instagram-png-logo-1455.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      Bootstrap
-    </a>
-    <nav class="navbar navbar-light bg-light">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </nav>
-
-      <ul class="nav justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link active" href="{% url 'photo_app:add' %}">Add</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'user:logout' %}">LogOut</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-
-  </nav>
-
-  {% block content %}
-  {% endblock %}
-
-
-
-
-  </div>
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+       
+        <footer class="footer">
+            <nav class="footer__nav">
+                <ul class="footer__list">
+                    <li class="footer__list-item"><a href="#" class="footer__link">about us</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">support</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">blog</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">press</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">api</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">jobs</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">privacy</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">terms</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">directory</a></li>
+                    <li class="footer__list-item"><a href="#" class="footer__link">language</a></li>
+                </ul>
+            </nav>
+            <span class="footer__copyright">© 2017 instagram</span>
+        </footer>
+        <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+        <script src="{% static 'js/app.js'%}"></script>
+    </body>
 </html>

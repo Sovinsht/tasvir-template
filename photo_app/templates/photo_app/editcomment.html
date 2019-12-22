@@ -3,7 +3,7 @@
 
 
 {% block title %}
-    Edit Photo
+    Edit Comment
 {% endblock %}
 
 
@@ -12,9 +12,9 @@
 <form action="" method="POST" enctype="multipart/form-data">
     {%csrf_token%}
     <!-- {{form.as_p}} -->
-    caption:<input type="text" name="caption" value="{{photo.caption}}"><br>
+    comment:<input type="text" name="caption" value="{{photo.comment}}"><br>
     Choose Photo:<input type="file" name="photo" value="{{photo.photo}}"><br>
-    <input type="hidden" name="like" value="{{photo.like}}">
+   
     <input type="hidden" name="user" value="{{request.session.id}}">
     <input type="submit" value="upload">
 </form>
