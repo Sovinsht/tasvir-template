@@ -44,10 +44,11 @@ def add(request):
 
 def edit(request,id):
     photo = PhotoModel.objects.get(id=id)
-
+    user = UserModel.objects.get(id=id)
     if request.method == "POST":
         form = PhotoForm(request.POST, request.FILES, instance=photo) 
-        if form.is_valid():
+        form1 = UserModel(request.POST, request.FILES, instance=user)
+        if form1.is_valid() and form.is_valid():
             try:
                 form.save()
                 return redirect('photo_app:index')
@@ -61,7 +62,7 @@ def edit(request,id):
             return HttpResponse('Form is not valid')    
     else:
        # form = PhotoForm
-        return render(request,"photo_app/editphoto.html",{'photo':photo})
+        return render(request,"photo_app/edit-profile.html",{'photo':photo, 'user':user})
 
 def edit1(request,id):
     comment = CommentModel.objects.all()
@@ -89,3 +90,21 @@ def delete(request, id):
     photo.delete()
     return redirect('photo_app:profile')
 
+def search(request):
+    if 'id' not in request.session:
+        return redirect('user:login')
+
+    userid = request.session.get('id',None)
+
+    if request.method == 'GET':
+        query = request.GET.get('q',None)
+        if query:
+            d = {
+                    'profiles' : UserModel.objects.filter(user_name__icontains=query).exclude(id=userid),
+                    'query' : query
+                }    
+            return render(request,'photo_app/search_result.html',d)
+        else:
+                return redirect('photo_app:index')
+    else:
+            return redirect('photo_app:index')

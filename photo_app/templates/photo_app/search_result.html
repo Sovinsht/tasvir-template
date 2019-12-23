@@ -1,0 +1,34 @@
+{% extends "photo_app/base.html" %}
+
+
+
+{% block main_content %}
+        <main class="explore">
+            <section class="people">
+                <ul class="people__list">
+                    {% for user in profiles %}
+                    <li class="people__person">
+                        <div class="people__column">
+                            
+                            <div class="people__avatar-container">
+                                <img 
+                                    src="{{user.photo.url}}"
+                                    class="people__avatar"
+                                />
+                            </div>
+                            <div class="people__info">
+                                <span class="people__username">{{user.user_name}}</span>
+                                <span class="people__full-name">{{user.name}}</span>
+                            </div>
+                        </div>
+                        <div class="people__column">
+                            <a href="#">Follow</a>
+                        </div>
+                    </li>
+                   {% endfor %}
+                </ul>
+            </section>
+        </main>
+        
+
+{% endblock %}

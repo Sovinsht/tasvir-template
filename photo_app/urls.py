@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from photo_app.views import index,add,edit,edit1,profile,delete
+from photo_app.views import index,add,edit,edit1,profile,delete,search
 
 app_name = 'photo_app'
 
@@ -26,5 +26,6 @@ urlpatterns = [
     path('edit/<int:id>/', edit, name= 'edit'),
     path('profile/',profile, name='profile'),
     path('edit1/<int:id>/', edit1, name= 'edit1'),
-    path('delete/<int:id>/',delete, name='delete')
+    path('delete/<int:id>/',delete, name='delete'),
+    path('search',search, name='search')
 ]
