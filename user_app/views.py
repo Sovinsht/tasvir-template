@@ -25,7 +25,7 @@ def loginauth(request):
 
 
     else:
-        return render(request, 'user_app\login.html')
+        return render(request, 'user_app/login.html')
 
 def logout(request):
         request.session.flush()
